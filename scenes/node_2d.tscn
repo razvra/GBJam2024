@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://clnliwfull1vp"]
+
+[ext_resource type="Texture2D" uid="uid://c1f4mgpuv4358" path="res://assets/icon.svg" id="1_b8lah"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_right = 161.0
+offset_bottom = 144.0
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tristique hendrerit dapibus. Quisque at ante malesuada, finibus magna non, pharetra lectus. Nam lorem quam, molestie id libero in, blandit aliquam nunc. Proin dignissim, diam eu euismod tincidunt, dui dolor placerat metus, sed posuere orci enim quis nulla. Etiam non lorem ipsum. Nunc lobortis ultrices nunc sit amet rhoncus. Integer eget faucibus ante. Aenean pulvinar est felis, eget tincidunt sapien imperdiet at. Integer elementum dignissim nunc a elementum. Aliquam lacinia sollicitudin arcu, nec consequat lorem pretium et. Sed sit amet dui congue, accumsan risus eu, suscipit ante. Morbi a ultrices felis. Mauris et ante at mi pretium fermentum ac eget nunc. Vestibulum tincidunt convallis suscipit."
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(76, 77)
+scale = Vector2(0.398438, 0.398438)
+texture = ExtResource("1_b8lah")
