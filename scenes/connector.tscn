@@ -1,0 +1,67 @@
+[gd_scene load_steps=5 format=3 uid="uid://b1bhsai5jyinn"]
+
+[ext_resource type="Script" path="res://scripts/connector.gd" id="1_fal3b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w1n37"]
+size = Vector2(2, 144)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0nbk1"]
+size = Vector2(2, 144)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0d2uj"]
+size = Vector2(160, 2)
+
+[node name="Connector" type="Node2D"]
+script = ExtResource("1_fal3b")
+
+[node name="LeftColorRect" type="ColorRect" parent="."]
+offset_left = -20.0
+offset_bottom = 144.0
+
+[node name="RightColorRect" type="ColorRect" parent="."]
+offset_left = 160.0
+offset_right = 180.0
+offset_bottom = 144.0
+
+[node name="TopColorRect" type="ColorRect" parent="."]
+offset_top = -20.0
+offset_right = 160.0
+
+[node name="BotColorRect" type="ColorRect" parent="."]
+offset_top = 144.0
+offset_right = 160.0
+offset_bottom = 164.0
+
+[node name="LeftArea2D" type="Area2D" parent="."]
+position = Vector2(0, 72)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftArea2D"]
+shape = SubResource("RectangleShape2D_w1n37")
+metadata/_edit_lock_ = true
+
+[node name="RightArea2D" type="Area2D" parent="."]
+position = Vector2(160, 72)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightArea2D"]
+shape = SubResource("RectangleShape2D_0nbk1")
+metadata/_edit_group_ = true
+
+[node name="TopArea2D" type="Area2D" parent="."]
+position = Vector2(80, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopArea2D"]
+shape = SubResource("RectangleShape2D_0d2uj")
+metadata/_edit_group_ = true
+
+[node name="BotArea2D" type="Area2D" parent="."]
+position = Vector2(80, 144)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BotArea2D"]
+shape = SubResource("RectangleShape2D_0d2uj")
+metadata/_edit_group_ = true
+
+[connection signal="body_exited" from="LeftArea2D" to="." method="_on_left_area_2d_body_exited"]
+[connection signal="body_exited" from="RightArea2D" to="." method="_on_right_area_2d_body_exited"]
+[connection signal="body_exited" from="TopArea2D" to="." method="_on_top_area_2d_body_exited"]
+[connection signal="body_exited" from="BotArea2D" to="." method="_on_bot_area_2d_body_exited"]
