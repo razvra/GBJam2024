@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://b7pc2bhkdhxi3"]
+
+[ext_resource type="Texture2D" uid="uid://vphfdd5ywtmn" path="res://assets/knifer_temp.png" id="1_ms404"]
+[ext_resource type="Script" path="res://scripts/knifer.gd" id="1_oxjsx"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3jyfm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ms404")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xwo68"]
+radius = 1.0
+height = 10.7676
+
+[node name="Knifer" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_oxjsx")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 0.315)
+rotation = 1.93732
+scale = Vector2(0.0703125, 0.0703125)
+sprite_frames = SubResource("SpriteFrames_3jyfm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_xwo68")

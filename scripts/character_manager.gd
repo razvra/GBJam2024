@@ -20,30 +20,19 @@ func _ready() -> void:
 		add_child(character)
 		characters.append(character)
 		character.hide()
-		disable_collisions(character)
 	
 	current_character = characters[0]
 	current_character.show()
-	enable_collisions(current_character)
 
 func _process(delta: float) -> void:
 
 	if Input.is_action_just_pressed("change_ghost"):
 		switch_character()
-	pass
+	
+	Globals.player_position = current_character.position
 
 func switch_character():
 	current_character.hide()
 	index = (index + 1) % characters.size()
 	current_character = characters[index]
 	current_character.show()
-
-func enable_collisions(character):
-	for shape in character.get_children():
-		if shape is CollisionShape2D:
-			shape.disabled = false
-
-func disable_collisions(character):
-	for shape in character.get_children():
-		if shape is CollisionShape2D:
-			shape.disabled = true
