@@ -1,8 +1,33 @@
-[gd_scene load_steps=4 format=3 uid="uid://dbqnxw40xnpls"]
+[gd_scene load_steps=8 format=3 uid="uid://dbqnxw40xnpls"]
 
-[ext_resource type="PackedScene" uid="uid://c0iydh0on6iv" path="res://scenes/character_manager.tscn" id="2_4y1jd"]
+[ext_resource type="PackedScene" uid="uid://c0iydh0on6iv" path="res://scenes/managers/character_manager.tscn" id="2_4y1jd"]
 [ext_resource type="PackedScene" uid="uid://b1bhsai5jyinn" path="res://scenes/connector.tscn" id="2_j15yh"]
-[ext_resource type="PackedScene" uid="uid://bbgwxslce1oxe" path="res://scenes/game_manager.tscn" id="3_x4ncm"]
+[ext_resource type="PackedScene" uid="uid://bbgwxslce1oxe" path="res://scenes/managers/game_manager.tscn" id="3_x4ncm"]
+[ext_resource type="Shader" path="res://shaders/GB_Shader.gdshader" id="4_mwdrc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hlhxt"]
+shader = ExtResource("4_mwdrc")
+shader_parameter/shader_enabled = true
+shader_parameter/darkest = Color(0.0431373, 0.0784314, 0.141176, 1)
+shader_parameter/dark = Color(0.145098, 0.215686, 0.360784, 1)
+shader_parameter/light = Color(0.360784, 0.45098, 0.568627, 1)
+shader_parameter/lightest = Color(0.682353, 0.764706, 0.839216, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k81yd"]
+shader = ExtResource("4_mwdrc")
+shader_parameter/shader_enabled = true
+shader_parameter/darkest = Color(0.0980392, 0, 0, 1)
+shader_parameter/dark = Color(0.337255, 0.0352941, 0.0352941, 1)
+shader_parameter/light = Color(0.678431, 0.12549, 0.12549, 1)
+shader_parameter/lightest = Color(0.95, 0.722, 0.722, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5vpn0"]
+shader = ExtResource("4_mwdrc")
+shader_parameter/shader_enabled = true
+shader_parameter/darkest = Color(0.101961, 0.0901961, 0.0784314, 1)
+shader_parameter/dark = Color(0.219608, 0.25098, 0.227451, 1)
+shader_parameter/light = Color(0.380392, 0.470588, 0.317647, 1)
+shader_parameter/lightest = Color(0.701961, 0.698039, 0.509804, 1)
 
 [node name="Main" type="Node2D"]
 
@@ -10,16 +35,35 @@
 offset_right = 160.0
 offset_bottom = 144.0
 color = Color(0.0431373, 0.0784314, 0.141176, 1)
+metadata/_edit_lock_ = true
 
 [node name="Connector" parent="." instance=ExtResource("2_j15yh")]
 visible = false
+metadata/_edit_lock_ = true
 
 [node name="CharacterManager" parent="." instance=ExtResource("2_4y1jd")]
+metadata/_edit_lock_ = true
 
 [node name="GameManager" parent="." instance=ExtResource("3_x4ncm")]
+metadata/_edit_lock_ = true
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
+[node name="DrownyShader" type="ColorRect" parent="."]
 visible = false
-offset_right = 161.0
+material = SubResource("ShaderMaterial_hlhxt")
+offset_right = 160.0
 offset_bottom = 144.0
-text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tristique hendrerit dapibus. Quisque at ante malesuada, finibus magna non, pharetra lectus. Nam lorem quam, molestie id libero in, blandit aliquam nunc. Proin dignissim, diam eu euismod tincidunt, dui dolor placerat metus, sed posuere orci enim quis nulla. Etiam non lorem ipsum. Nunc lobortis ultrices nunc sit amet rhoncus. Integer eget faucibus ante. Aenean pulvinar est felis, eget tincidunt sapien imperdiet at. Integer elementum dignissim nunc a elementum. Aliquam lacinia sollicitudin arcu, nec consequat lorem pretium et. Sed sit amet dui congue, accumsan risus eu, suscipit ante. Morbi a ultrices felis. Mauris et ante at mi pretium fermentum ac eget nunc. Vestibulum tincidunt convallis suscipit."
+metadata/_edit_lock_ = true
+
+[node name="SlashyShader" type="ColorRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_k81yd")
+offset_right = 160.0
+offset_bottom = 144.0
+metadata/_edit_lock_ = true
+
+[node name="ShottyShader" type="ColorRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_5vpn0")
+offset_right = 160.0
+offset_bottom = 144.0
+metadata/_edit_lock_ = true

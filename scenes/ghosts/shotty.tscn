@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://cutvjwr000vtf"]
+
+[ext_resource type="PackedScene" uid="uid://gs8rwbd1ues1" path="res://scenes/character_base.tscn" id="1_t2nof"]
+
+[node name="Shotty" instance=ExtResource("1_t2nof")]

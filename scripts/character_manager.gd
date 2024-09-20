@@ -2,14 +2,24 @@ extends Node2D
 
 # Preload the character scenes
 var character_scenes = [
-	preload("res://scenes/shotty.tscn"),
-	preload("res://scenes/slashy.tscn"),
-	preload("res://scenes/drowny.tscn")
+	preload("res://scenes/ghosts/slashy.tscn"),
+	preload("res://scenes/ghosts/shotty.tscn"),
+	preload("res://scenes/ghosts/drowny.tscn")
 ]
 
 var index : int = 0
 var characters : Array[CharacterBody2D] = []
 var current_character : CharacterBody2D
+
+@onready var slashy_shader_rect: ColorRect = $"../SlashyShader"
+@onready var shotty_shader_rect: ColorRect = $"../ShottyShader"
+@onready var drowny_shader_rect: ColorRect = $"../DrownyShader"
+
+@onready var current_shader : Array[ColorRect] = [
+	slashy_shader_rect,
+	shotty_shader_rect,
+	drowny_shader_rect
+]
 
 func _ready() -> void:
 	var screen_center = get_viewport_rect().size / 2
@@ -23,6 +33,9 @@ func _ready() -> void:
 	
 	current_character = characters[0]
 	current_character.show()
+	
+	slashy_shader_rect.show()
+
 
 func _process(delta: float) -> void:
 
@@ -33,6 +46,8 @@ func _process(delta: float) -> void:
 
 func switch_character():
 	current_character.hide()
+	current_shader[index].hide()
 	index = (index + 1) % characters.size()
 	current_character = characters[index]
 	current_character.show()
+	current_shader[index].show()

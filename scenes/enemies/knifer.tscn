@@ -1,13 +1,13 @@
 [gd_scene load_steps=5 format=3 uid="uid://b7pc2bhkdhxi3"]
 
-[ext_resource type="Texture2D" uid="uid://vphfdd5ywtmn" path="res://assets/knifer_temp.png" id="1_ms404"]
-[ext_resource type="Script" path="res://scripts/knifer.gd" id="1_oxjsx"]
+[ext_resource type="Script" path="res://scripts/knifer.gd" id="1_qqlvc"]
+[ext_resource type="Texture2D" uid="uid://vphfdd5ywtmn" path="res://assets/knifer_temp.png" id="2_1j53c"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3jyfm"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_ms404")
+"texture": ExtResource("2_1j53c")
 }],
 "loop": true,
 "name": &"default",
@@ -21,7 +21,7 @@ height = 10.7676
 [node name="Knifer" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 3
-script = ExtResource("1_oxjsx")
+script = ExtResource("1_qqlvc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 0.315)
@@ -33,3 +33,9 @@ sprite_frames = SubResource("SpriteFrames_3jyfm")
 position = Vector2(3, 0)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_xwo68")
+
+[node name="LifeTimer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[connection signal="timeout" from="LifeTimer" to="." method="_on_life_timer_timeout"]

@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://b23th8dpipapy"]
+
+[ext_resource type="Script" path="res://scripts/bullet.gd" id="1_br6gy"]
+[ext_resource type="Texture2D" uid="uid://d2vid7wako3ab" path="res://assets/bullet_temp.png" id="1_saasd"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_amm0f"]
+radius = 1.0
+height = 6.0
+
+[node name="Bullet" type="CharacterBody2D"]
+collision_layer = 2
+script = ExtResource("1_br6gy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -0.000105431)
+rotation = -1.5708
+scale = Vector2(0.0152095, 0.0152095)
+texture = ExtResource("1_saasd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_amm0f")
+
+[node name="DisappearTimer" type="Timer" parent="."]
+wait_time = 6.0
+autostart = true
+
+[connection signal="timeout" from="DisappearTimer" to="." method="_on_disappear_timer_timeout"]

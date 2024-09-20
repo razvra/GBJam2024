@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://dbgtu0w0u8d4n"]
+
+[ext_resource type="Script" path="res://scripts/splasher.gd" id="1_0vv3f"]
+[ext_resource type="Texture2D" uid="uid://bybfbaynqcuey" path="res://assets/wave_temp.png" id="2_500fw"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lsl57"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_500fw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xwo68"]
+radius = 1.0
+height = 10.7676
+
+[node name="Splasher" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_0vv3f")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(17, 87)
+scale = Vector2(0.5965, 0.5965)
+sprite_frames = SubResource("SpriteFrames_lsl57")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0)
+shape = SubResource("CapsuleShape2D_xwo68")
+
+[node name="LifeTimer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[connection signal="timeout" from="LifeTimer" to="." method="_on_life_timer_timeout"]

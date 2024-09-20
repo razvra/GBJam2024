@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbgwxslce1oxe"]
+
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_shs4o"]
+
+[sub_resource type="Curve2D" id="Curve2D_8p0gc"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 160, 0, 0, 0, 0, 0, 160, 144, 0, 0, 0, 0, 0, 144, 0, 0, 0, 0, 0, 0)
+}
+point_count = 5
+
+[node name="GameManager" type="Node2D"]
+script = ExtResource("1_shs4o")
+
+[node name="KniferTimer" type="Timer" parent="."]
+
+[node name="ShooterTimer" type="Timer" parent="."]
+
+[node name="SplasherTimer" type="Timer" parent="."]
+
+[node name="StartTimer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="StartPosition" type="Marker2D" parent="."]
+position = Vector2(80, 72)
+
+[node name="KniferPath" type="Path2D" parent="."]
+visible = false
+curve = SubResource("Curve2D_8p0gc")
+metadata/_edit_lock_ = true
+
+[node name="KniferSpawnLocation" type="PathFollow2D" parent="KniferPath"]
+
+[connection signal="timeout" from="KniferTimer" to="." method="_on_knifer_timer_timeout"]
+[connection signal="timeout" from="ShooterTimer" to="." method="_on_shooter_timer_timeout"]
+[connection signal="timeout" from="SplasherTimer" to="." method="_on_splasher_timer_timeout"]
+[connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
