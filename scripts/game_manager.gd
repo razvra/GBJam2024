@@ -8,6 +8,7 @@ func _on_start_timer_timeout() -> void:
 	$KniferTimer.start()
 	$ShooterTimer.start()
 	$SplasherTimer.start()
+	$SplasherTimer.set_wait_time(15)
 	
 func _on_knifer_timer_timeout() -> void:
 	var knifer = knifer_scene.instantiate()

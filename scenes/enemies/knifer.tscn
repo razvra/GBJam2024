@@ -20,7 +20,6 @@ height = 10.7676
 
 [node name="Knifer" type="CharacterBody2D"]
 collision_layer = 2
-collision_mask = 3
 script = ExtResource("1_qqlvc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -35,7 +34,7 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_xwo68")
 
 [node name="LifeTimer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 6.0
 autostart = true
 
 [connection signal="timeout" from="LifeTimer" to="." method="_on_life_timer_timeout"]

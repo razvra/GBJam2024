@@ -12,12 +12,15 @@ point_count = 5
 script = ExtResource("1_shs4o")
 
 [node name="KniferTimer" type="Timer" parent="."]
+wait_time = 3.0
 
 [node name="ShooterTimer" type="Timer" parent="."]
+wait_time = 2.0
 
 [node name="SplasherTimer" type="Timer" parent="."]
 
 [node name="StartTimer" type="Timer" parent="."]
+wait_time = 0.5
 one_shot = true
 autostart = true
 

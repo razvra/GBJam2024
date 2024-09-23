@@ -24,7 +24,8 @@ func _on_life_timer_timeout() -> void:
 
 func shoot() -> void:
 	var instance = bullet.instantiate()
-	add_child(instance)
+	get_tree().get_root().add_child(instance)
+	instance.position = global_position
 
 func _on_shot_timer_timeout() -> void:
 	shoot()
