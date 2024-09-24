@@ -12,3 +12,14 @@ func _physics_process(_delta: float) -> void:
 	else: #decelerate
 		velocity = velocity.move_toward(Vector2.ZERO, DECEL)
 	move_and_slide()
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.name == "Knifer":
+		pass
+	elif body.name == "Bullet":
+		pass
+
+func die():
+	#get a function to queue free and handle going to the next character and
+	#disabling the appropriate colorrect. from character manager
+	pass

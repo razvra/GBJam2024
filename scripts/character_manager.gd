@@ -32,10 +32,9 @@ func _ready() -> void:
 		character.hide()
 	
 	current_character = characters[0]
+	Globals.current_character = current_character
 	current_character.show()
-	
 	slashy_shader_rect.show()
-
 
 func _process(delta: float) -> void:
 
@@ -49,5 +48,6 @@ func switch_character():
 	current_shader[index].hide()
 	index = (index + 1) % characters.size()
 	current_character = characters[index]
+	Globals.current_character = current_character
 	current_character.show()
 	current_shader[index].show()
