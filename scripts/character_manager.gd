@@ -33,9 +33,7 @@ func _ready() -> void:
 	
 	current_character = characters[0]
 	current_character.show()
-	
 	slashy_shader_rect.show()
-
 
 func _process(delta: float) -> void:
 

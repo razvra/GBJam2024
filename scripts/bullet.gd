@@ -3,11 +3,7 @@ extends CharacterBody2D
 var direction : float
 const SPEED = 50
 
-func _ready() -> void:
-	pass #position = Vector2.ZERO
-
 func _physics_process(delta: float) -> void:
-	
 	velocity = Vector2.DOWN * SPEED
 	move_and_slide()
 	if get_slide_collision_count() > 0:
